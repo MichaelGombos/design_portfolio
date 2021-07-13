@@ -1,12 +1,14 @@
-.spacer-50 {
-  height: 50px;
-}
-
-.spacer-100 {
-  height: 100px;
-}
-
 .rounded-hero {
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
+}
+
+.rounded-footer {
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
 }

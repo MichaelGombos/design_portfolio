@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-
     <link href="css\custom.min.css" rel="stylesheet" />
+
+    <!-- custom CSS and icons-->
     <link href="css\style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/7b9076911f.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Michael Gombos | Houston Web Designer</title>
   </head>
   <body class="bg-dark text-light">
     <!-- Hero -->
     <div class="mb-5 py-5 bg-secondary rounded-hero">
       <header class="container-fluid my-5">
-        <nav class="container d-flex justify-content-between">
+        <nav class="container d-flex justify-content-between display-8">
           <a>Gombos</a>
           <a>Works</a>
         </nav>
@@ -23,31 +28,119 @@
       <main>
         <div class="container-fluid mt-lg-5 pt-lg-5">
           <div class="container row mx-auto">
-            <img class="col-5" src="assets\images\white-line-art-large.png" />
+            <figure class="col-5">
+              <img
+                class="img-fluid"
+                src="assets\images\white-line-art-large.png"
+              />
+            </figure>
+
             <div class="my-auto col-7">
-              <h1 class="display-1"><strong>
-                Hi,<br />
-                I build websites.
+              <h1 class="display-1">
+                <strong>
+                  Hi,<br />
+                  I build websites.
+                </strong>
               </h1>
-              </strong>
+
               <p class="display-7 mb-0 mt-5">Michael Gombos,</p>
-              <h2 class="text-altprimary display-5 mt-0">Houston Web Designer</h2>
+              <h2 class="text-altprimary display-5 mt-0">
+                Houston Web Designer
+              </h2>
             </div>
           </div>
         </div>
       </main>
     </div>
     <!-- About-->
-    <section class="container">
+    <section class="container my-5">
+      <div class="row">
+        <figure class="col-4 offset-2">
+          <img
+            src="assets\images\michael-border-stand-far.png"
+            alt="Michael Gombos Standing"
+            class="img-fluid"
+          />
+        </figure>
+
+        <div class="col-4 my-auto">
+          <h2 class="display-3">About Me</h2>
+          <p class="lead">
+            I am a Computer Science major at HCC, I work from home as a Web
+            Designer by day, and freelancer by night.
+          </p>
+        </div>
+      </div>
     </section>
     <!-- Works-->
-    <section class="container">
+    <h2 class="display-3 text-center">My Most Recent Client</h2>
+    <section class="container bg-primary py-4 mt-3">
+      <div class="row">
+        <div class="col-4 offset-1">
+          <h3 class="display-5">Kbkaty.com</h3>
+          <p class="text-altgray display-7"><em>Bootstrap</em></p>
+          <p class="lead">
+            KBKaty is a Texas contracting company that opened in 2018. We were
+            able to produce a 20% increase in PPC conversions.
+          </p>
+          <p class="lead">
+            The design and layout were already decided, with my part being the
+            development.
+          </p>
+          <i class="bi bi-arrow-right-circle-fill"></i>
+          <button class="btn btn-light text-primary">
+            <span class="display-8">Visit </span
+            ><i class="fas fa-arrow-circle-right fa-2x"></i>
+          </button>
+        </div>
+        <figure class="col-5 offset-1 my-auto">
+          <img
+            src="assets\mockups\kbkaty-mockup-device-array.png"
+            alt=""
+            class="img-fluid"
+          />
+        </figure>
+      </div>
     </section>
     <!-- Contact-->
-    <section class="container">
+    <section class="container my-5">
+      <div class="row">
+        <div class="col-4 offset-2 my-auto">
+          <h2 class="display-3">Contact Me</h2>
+          <p class="lead mb-0 mt-4">
+            Email:
+            <a
+              class="link-altprimary text-decoration-none"
+              href="mailto:gombos2002@gmail.com"
+              >gombos2002@gmail.com</a
+            >
+          </p>
+          <p class="lead mt-0">
+            Phone:
+            <a
+              class="link-altprimary text-decoration-none"
+              href="tel:3463378946"
+              >346-337-8946</a
+            >
+          </p>
+        </div>
+
+        <figure class="col-4">
+          <img
+            src="assets\images\michael-border-sit-far.png"
+            alt="Michael Gombos Standing"
+            class="img-fluid"
+          />
+        </figure>
+      </div>
     </section>
     <!-- Footer-->
-    <footer></footer>
+    <footer class="container-fluid p-4 bg-secondary rounded-footer">
+      <nav class="container d-flex justify-content-between display-8">
+        <a>Top <i class="fas fa-arrow-circle-up"></i></a>
+        <a>Works</a>
+      </nav>
+    </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
