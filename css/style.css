@@ -12,3 +12,36 @@
   width: 100%;
   height: auto;
 }
+
+.opacity-1 {
+  opacity: 1;
+}
+
+.radius-50-l {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.radius-50-r {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.fishtail-r {
+  position: relative;
+}
+.fishtail-br {
+  width: 50px;
+  height: auto;
+  position: absolute;
+  right: 0px;
+  top: -49px;
+}
+
+.fishtail-tr {
+  width: 50px;
+  height: auto;
+  position: absolute;
+  bottom: -50px;
+  right: 0px;
+}

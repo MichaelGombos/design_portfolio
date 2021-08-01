@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="77.143" height="90" viewBox="0 0 77.143 90">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3a7eab;
+      }
+    </style>
+  </defs>
+  <path id="Icon_awesome-html5" data-name="Icon awesome-html5" class="cls-1" d="M0,2.25,7.011,81.763,38.471,92.25,70.132,81.763,77.143,2.25ZM61.915,27.944H24.991l.824,9.924H61.092L58.359,67.681,38.692,73.1v.06h-.221L18.643,67.681,17.438,52.453H27.02l.7,7.654L38.471,63.02l10.788-2.913,1.205-12.5H16.935l-2.571-29.25H62.8l-.884,9.583Z" transform="translate(0 -2.25)"/>
+</svg>
