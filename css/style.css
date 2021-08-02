@@ -1,9 +1,17 @@
-.rounded-hero {
+.rounded-bottom-right {
   border-bottom-right-radius: 50px;
 }
 
-.rounded-footer {
+.rounded-bottom-left {
+  border-bottom-left-radius: 50px;
+}
+
+.rounded-top-right {
   border-top-right-radius: 50px;
+}
+
+.rounded-top-left {
+  border-top-left-radius: 50px;
 }
 
 .responsive-image {
@@ -58,4 +66,8 @@
   position: absolute;
   top: -50px;
   left: 0px;
+}
+
+.leaf-crop {
+  border-top-left-radius: 80px;
 }
