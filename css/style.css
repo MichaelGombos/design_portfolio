@@ -27,7 +27,7 @@
   border-bottom-right-radius: 50px;
 }
 
-.fishtail-r {
+.fishtail {
   position: relative;
 }
 .fishtail-br {
@@ -44,4 +44,20 @@
   position: absolute;
   bottom: -50px;
   right: 0px;
+}
+
+.fishtail-tl {
+  width: 50px;
+  height: auto;
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
+}
+
+.fishtail-bl {
+  width: 50px;
+  height: auto;
+  position: absolute;
+  top: -50px;
+  left: 0px;
 }
