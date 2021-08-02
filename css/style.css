@@ -1,11 +1,9 @@
 .rounded-hero {
-  border-bottom-left-radius: 60px;
-  border-bottom-right-radius: 60px;
+  border-bottom-right-radius: 50px;
 }
 
 .rounded-footer {
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
+  border-top-right-radius: 50px;
 }
 
 .responsive-image {
