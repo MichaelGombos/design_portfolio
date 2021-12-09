@@ -63,6 +63,7 @@
 .fishtail-tl {
   width: 50px;
   height: auto;
+  position: absolute;
   bottom: -50px;
   left: 0px;
 }
@@ -70,6 +71,7 @@
 .fishtail-bl {
   width: 50px;
   height: auto;
+  position: absolute;
   top: -50px;
   left: 0px;
 }
@@ -152,15 +154,36 @@
 
 .section-header {
   color: rgba(255, 255, 255, 0.1);
-  font-size: 85px;
   position: relative;
-  top: -70px;
+  bottom: 3.4rem;
   font-weight: bolder;
 }
-
+@media (max-width: 1000px) {
+  .section-header {
+    bottom: calc(3.4rem - 2vw);
+  }
+}
+@media (max-width: 567px) {
+  .section-header {
+    bottom: calc(3.4rem - 5vw);
+  }
+}
 .btn-outline-primary:hover {
   background-color: rgba(255, 221, 0, 0.1);
 }
 .btn-outline-primary:focus {
   box-shadow: none;
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #ffd500; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
