@@ -192,3 +192,12 @@ ul li::before {
   position: relative;
   top: -75px;
 }
+
+.my-10 {
+  margin-top: 6rem !important;
+  margin-bottom: 6rem !important;
+}
+
+.nav-icon {
+  height: 30px;
+}
