@@ -59,7 +59,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.117.1/build/three.m
 				const material = new THREE.ShaderMaterial( {
                 //ball colors
 					uniforms: {
-						color: { value: new THREE.Color( 0x434343 ) },
+						color: { value: new THREE.Color( 0x383838 ) },
 					},
 					vertexShader: document.getElementById( 'vertexshader' ).textContent,
 					fragmentShader: document.getElementById( 'fragmentshader' ).textContent
@@ -77,7 +77,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.117.1/build/three.m
 				renderer.setPixelRatio( window.devicePixelRatio );
 				
 				//bg color??
-				renderer.setClearColor( 0x303030, 1);
+				renderer.setClearColor( 0x282828, 1);
 				
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
