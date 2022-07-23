@@ -1,4 +1,5 @@
 html {
+    scroll-behavior: smooth;
     /* 10px */
     --primary-color: #FC9B2C;
     --secondary-color: #557A54;
@@ -55,19 +56,25 @@ body {
     background-color:var(--darker-gray);
     color:white;
 }
-button{
+.button{
     font-size: 2.1rem;
     font-family: 'Montserrat', sans-serif;
     color:white;
-    background-color:var(--dark-gray);
     border:none;
+    background-color:var(--dark-gray);
     padding:17px 26px;
     width:fit-content;
+}
+
+.button.bg-primary{
+    background-color:var(--primary-color);
+}
+.button.bg-secondary{
+    background-color:var(--secondary-color);
 }
 a{
     text-decoration: none;
     color:white;
-    color:var(--secondary-color);
 }
 h1,h2{
     font-weight:300;
@@ -108,7 +115,7 @@ h1,h2,h3,h4,h5,h6{
     margin-bottom: auto;
     margin-top: auto;
 }
-#hero .bottom h2 + button{
+#hero .bottom h2 + .button{
     margin-right:26px;
 }
 #hero .top{
@@ -170,7 +177,7 @@ footer{
     margin-top:2.1rem;
     margin-bottom:2.1rem;
 }
-.project nav button{
+.project nav .button{
     margin-right:20px;
 }
 
@@ -185,4 +192,63 @@ footer{
 
 #about h3{
     margin-bottom:20px;
+}
+footer{
+    margin-top:50px;
+}
+footer .column{
+    margin-top:20px;
+    margin-right:20px;
+}
+footer .column > *{
+    margin-top:0px;
+    margin-bottom:20px;
+}
+
+/*button grow animation */
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.button:hover, .button:focus, .button:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* link underline  animations */
+.link {
+  width:fit-content;
+  overflow:visible;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+}
+.link:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  top:30px;
+  background: var(--secondary-color);
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.link:hover:before, a:focus:before, a:active:before {
+  right: 0;
 }
