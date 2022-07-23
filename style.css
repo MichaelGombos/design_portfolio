@@ -20,10 +20,11 @@ body {
     margin:0px;
     /* 21px */
     font-size: 2.1rem;
-    
     font-family: 'Montserrat', sans-serif;
 }
-
+.overflow-hidden{
+    overflow:hidden;
+}
 .bg-primary{
     background-color:var(--primary-color);
 }
@@ -201,6 +202,7 @@ h2 .motif{
     line-height:1;
 }
 #hero {
+height:100vh;
 overflow:hidden;
 }
 
@@ -229,8 +231,7 @@ footer{
 
 .container{
     width:auto;
-    padding-left:30px;
-    padding-right:30px;
+    padding:30px;
 }
     /*on desktop*/
 @media screen and (min-width: 900px) {
@@ -258,7 +259,8 @@ footer{
 }
 @media screen and (min-width: 754px) {
     .project .preview{
-        width:50%;
+        height:250px;
+        width:auto;
     }
 }
 
@@ -324,4 +326,87 @@ footer .column > *{
 }
 .link:hover:before, a:focus:before, a:active:before {
   right: 0;
+}
+
+#page-loader{
+    display:none;
+}
+#loader-wrapper{
+    touchAction:none;
+    scroll:none;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:var(--darker-gray);
+}
+/*Page loader animations*/
+
+.loader {
+  --uib-size: 47px;
+  --uib-speed: 1s;
+  --uib-color: black;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--uib-size);
+  height: calc(var(--uib-size) * 0.17);
+  padding-top: calc(var(--uib-size) * 0.34);
+}
+
+.loader .dot {
+  flex-shrink: 0;
+  width: calc(var(--uib-size) * 0.17);
+  height: calc(var(--uib-size) * 0.17);
+  border-radius: 50%;
+  background-color: var(--dark-gray);
+  will-change: transform;
+}
+
+.loader .dot:nth-child(1) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.45) infinite;
+}
+
+.loader .dot:nth-child(2) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.3) infinite;
+}
+
+.loader .dot:nth-child(3) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.15) infinite;
+}
+
+.loader .dot:nth-child(4) {
+  animation: jump var(--uib-speed) ease-in-out infinite;
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
+}
+
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
 }

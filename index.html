@@ -10,7 +10,8 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
    </head>
-   <body class="bg-darker text-white">
+   <body class="bg-darker text-white overflow-hidden">
+      <div id="page-wrapper">
       <div id="hero">
          <div class="content">
             <header class="top container">
@@ -46,7 +47,7 @@
                </div>
             </div>
             <div class="project">
-               <h3 class="h4 bold">Sorting Algorith Visualizer</h3>
+               <h3 class="h4 bold">Sorting Algorithm Visualizer</h3>
                <p>This is a react application build to provide a visual for how data is moved inside of arrays that are ran throught common sorting algorithms.  </p>
                <img class="preview" src="./assets/images/sorter-project.png">
                <nav>
@@ -110,6 +111,16 @@ This was one of my first real projects and taught me a lot about extracting cont
             </div>
          </div>
       </footer>
+      </div>
+
+      <div scroll="no" id="loader-wrapper">
+         <div class="loader">
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+         </div>
+      </div>
    </body>
    <script src="magic.js"></script>
    <!--hero section threejs-->
@@ -139,6 +150,36 @@ This was one of my first real projects and taught me a lot about extracting cont
       }
       
    </script>
+   <!--fades out loader after page load-->
+   <script>
+   function fadeOutEffect() {
+    var fadeTarget = document.getElementById("loader-wrapper");
+    var pageContent = document.getElementById("page-wrapper");
+    var pageBody = document.getElementsByTagName("body")[0];
+    var fadeEffect = setInterval(function () {
+       if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+       }
+       if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+       } else {
+            clearInterval(fadeEffect);
+       }
+    }, 50);
+    pageContent.style.display="block";
+    console.log(pageBody)
+    pageBody.classList.remove("overflow-hidden");
+    fadeTarget.remove();
+   }
+   
+   window.addEventListener("load", function(){
+      console.log("triggered?")
+    fadeOutEffect()
+    
+   });
+   console.log("assigned")
+
+</script>
    <!-- Import maps polyfill -->
    <!-- Remove this when import maps will be widely supported -->
    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
