@@ -7,7 +7,14 @@ html {
     --light-gray: #B9B9B9;
     --dark-gray: #383838;
     --darker-gray: #282828;
+    /*mobile 8.4px*/
+    font-size: 52.5%;
+}
+@media only screen and (min-width : 628px){
+    html{
+    /*desktop 10 px*/
     font-size: 62.5%;
+    }
 }
 body {
     margin:0px;
@@ -16,6 +23,7 @@ body {
     
     font-family: 'Montserrat', sans-serif;
 }
+
 .bg-primary{
     background-color:var(--primary-color);
 }
@@ -84,34 +92,63 @@ h1,h2,h3,h4,h5,h6{
 h1 .motif{
     position:relative;
 }
-h1 .motif:after{
+h1 .motif:after {
     content: url(./assets/icons/icon_hero_motif.svg);
     position: absolute;
-    right: -15px;
-    bottom: 31px;
+    right: -211px;
+    bottom: 41px;
     display: inline-block;
-    transform: scale(.573);
+    transform: scale(0.443);
 }
+@media only screen and (min-width : 628px){
+    h1 .motif:after{
+        content: url(./assets/icons/icon_hero_motif.svg);
+        position: absolute;
+        right: -15px;
+        bottom: 57px;
+        display: inline-block;
+        transform: scale(.573);
+    }
+}
+
 h2 .motif{
     position:relative;
 }
 #projects h2 .motif:after{
     content: url(./assets/icons/icon_body_motif.svg);
     position: absolute;
-    left: -20px;
-    bottom: 28px;
+    left: -18px;
+    bottom: 24px;
     display: inline-block;
-    transform: scale(1.094);
+    transform: scale(.8);
 }
 #about h2 .motif:after{
     content: url(./assets/icons/icon_body_motif.svg);
     position: absolute;
     left: -16px;
-    bottom: 38px;
+    bottom: 33px;
     display: inline-block;
-    transform: scale(1.094);
+    transform: scale(.8);
 }
 
+@media only screen and (min-width : 628px){
+    #projects h2 .motif:after{
+        content: url(./assets/icons/icon_body_motif.svg);
+        position: absolute;
+        left: -20px;
+        bottom: 28px;
+        display: inline-block;
+        transform: scale(1.094);
+    }
+    #about h2 .motif:after{
+        content: url(./assets/icons/icon_body_motif.svg);
+        position: absolute;
+        left: -16px;
+        bottom: 38px;
+        display: inline-block;
+        transform: scale(1.094);
+    }
+}
 .h1{
     font-size:8.6rem;
 }
@@ -153,21 +190,24 @@ h2 .motif{
     margin-top:75px;
 }
 #hero .top a{
-    margin-right: 28px;
+    margin-right: 10px;
 }
 #hero h1{
-    max-height:9rem;
+    line-height:.7;
 }
 
 #hero h2{
     margin-bottom:37px;
+    line-height:1;
 }
 #hero {
 overflow:hidden;
 }
 
 
-
+.inline-block{
+    display:inline-block;
+}
 .row{
     display:flex;
     flex-direction:row;
