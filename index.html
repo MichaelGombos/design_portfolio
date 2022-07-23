@@ -4,11 +4,128 @@
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Title</title>
-      <link rel="stylesheet" href="style.css">
+      
+      <!--critical CSS-->
+      <style type="text/css">
+         html {
+    scroll-behavior: smooth;
+    /* 10px */
+    --primary-color: #FC9B2C;
+    --secondary-color: #557A54;
+    --font-color: #ffffff;
+    --light-gray: #B9B9B9;
+    --dark-gray: #383838;
+    --darker-gray: #282828;
+    /*mobile 8.4px*/
+    font-size: 52.5%;
+         }
+    body {
+    margin: 0px;
+    /* 21px */
+    font-size: 2.1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
+.bg-darker {
+    background-color: var(--darker-gray);
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1,h2 {
+    font-weight: 300;
+    font-family: 'Indie Flower', cursive;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0px;
+}
+
+h1 .motif {
+    position: relative;
+}
+
+h1 .motif:after {
+    content: url(./assets/icons/icon_hero_motif.svg);
+    position: absolute;
+    right: -211px;
+    bottom: 41px;
+    display: inline-block;
+    transform: scale(0.443);
+}
+
+#hero .content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 82%, var(--darker-gray) 91%);
+}
+
+#hero .bottom {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+#hero .bottom h2 + .button {
+    margin-right: 26px;
+}
+
+#hero .top {
+    margin-top: 75px;
+}
+
+#hero .top a {
+    margin-right: 10px;
+}
+
+#hero h1 {
+    line-height: .7;
+}
+
+#hero h2 {
+    margin-bottom: 37px;
+    line-height: 1;
+}
+
+#hero {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+      </style>
+      
+      <!--non critical css-->
+      <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="style.css"></noscript>
+      
       <!--fonts-->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap"></noscript>
+      
    </head>
    <body class="bg-darker text-white overflow-hidden">
       <div id="page-wrapper">
@@ -24,7 +141,7 @@
                <h1 class="h1">Michael <span class="inline-block"><span class="motif">G</span>ombos</span></h1>
                <h2 class="text-light h3 ">Your Freindly Neighborhood Web Designer</h2>
                <a href="https://github.com/MichaelGombos" class="button hvr-grow">Github</a>
-               <a href="" class="button hvr-grow bg-secondary">Resume</a>
+               <a href="./assets/documents/GombosResume.pdf" class="button hvr-grow bg-secondary">Resume</a>
             </div>
          </div>
          <!--canvas is generated here-->
@@ -35,7 +152,7 @@
             <div class="project">
                <h3 class="h4 bold">Carrot.com Css Tab Extender</h3>
                <p>While working at SEO for real estate investors, I spent a lot of my time inside of the carrot editor tweaking and designing web pages. The carrot.com design tab offers a CSS editor much like WordPress, but I found the default size to be too small </p>
-               <img class="preview" src="./assets/images/carrot-project.png">
+               <img class="preview" src="./assets/images/carrot-project.webp">
                <nav>
                   <a href="https://chrome.google.com/webstore/detail/carrot-css-tab-extender/lgkdfebkigaodhjhbceehdilafpdallo?hl=en"class="button bg-secondary">Web Store</a>
                   <a href="https://github.com/MichaelGombos/Carrot-CSS-Tab-Extender" class="button">Github</a>
@@ -49,7 +166,7 @@
             <div class="project">
                <h3 class="h4 bold">Sorting Algorithm Visualizer</h3>
                <p>This is a react application build to provide a visual for how data is moved inside of arrays that are ran throught common sorting algorithms.  </p>
-               <img class="preview" src="./assets/images/sorter-project.png">
+               <img class="preview" src="./assets/images/sorter-project.webp">
                <nav>
                   <a href="https://sparkling-tiramisu-b58a5d.netlify.app/" class="button bg-secondary">View Live</a>
                   <a href="https://github.com/MichaelGombos/sorting-algorithm-visualizer" class="button">Github</a>
@@ -67,7 +184,7 @@
 
 <br/><br/>
 This was one of my first real projects and taught me a lot about extracting content from clients.</p>
-               <img class="preview" src="./assets/images/kbkaty-project.png">
+               <img class="preview" src="./assets/images/kbkaty-project.webp">
                <nav>
                   <a href="https://www.kbkaty.com/" class="button bg-secondary">View Live</a>
                </nav>
@@ -90,7 +207,7 @@ This was one of my first real projects and taught me a lot about extracting cont
                   <p>I like to spend my free time practicing the ukulele, repairing military grade jet turbines, and lying about my hobbies.</p>
                </div>
                <div class="column">
-                  <img src="./assets/images/michael.png">
+                  <img src="./assets/images/michael.webp">
                </div>
             </div>
          </div>
@@ -100,7 +217,7 @@ This was one of my first real projects and taught me a lot about extracting cont
             <div class="row">
                <div class="column">
                   <a class="link" href="#hero">Back To Top</a>
-                  <a class="link" href="#">Resume</a>
+                  <a class="link" href="./assets/documents/GombosResume.pdf">Resume</a>
                   <a class="link" href="#projects">Projects</a>
                   <a class="link" href="#about">About</a>
                   
