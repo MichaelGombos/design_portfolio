@@ -83,7 +83,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.117.1/build/three.m
 				container.appendChild( renderer.domElement );
 
 
-				container.style.touchAction = 'none';
+				container.style.touchAction = 'pan-y';
 				container.addEventListener( 'pointermove', onPointerMove );
 
 				//
