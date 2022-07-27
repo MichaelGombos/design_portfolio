@@ -7,7 +7,7 @@
       
       <!--critical CSS-->
       <style type="text/css">
-         html {
+      html {
     scroll-behavior: smooth;
     /* 10px */
     --primary-color: #FC9B2C;
@@ -18,56 +18,18 @@
     --darker-gray: #282828;
     /*mobile 8.4px*/
     font-size: 52.5%;
-         }
-    body {
-    margin: 0px;
-    /* 21px */
-    font-size: 2.1rem;
-    font-family: 'Montserrat', sans-serif;
 }
 
-.overflow-hidden {
-    overflow: hidden;
+.overflow-hidden{
+    overflow:hidden;
 }
-
-.bg-secondary {
-    background-color: var(--secondary-color);
+body{
+    background-color: var( --darker-gray);
 }
-.bg-darker {
-    background-color: var(--darker-gray);
+#hero {
+height:100vh;
+overflow:hidden;
 }
-
-.text-primary {
-    color: var(--primary-color);
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-h1,h2 {
-    font-weight: 300;
-    font-family: 'Indie Flower', cursive;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    margin: 0px;
-}
-
-h1 .motif {
-    position: relative;
-}
-
-h1 .motif:after {
-    content: url(./assets/icons/icon_hero_motif.svg);
-    position: absolute;
-    right: -211px;
-    bottom: 41px;
-    display: inline-block;
-    transform: scale(0.443);
-}
-
 #hero .content {
     position: absolute;
     display: flex;
@@ -78,40 +40,88 @@ h1 .motif:after {
     background: linear-gradient(180deg, rgba(0,0,0,0) 82%, var(--darker-gray) 91%);
 }
 
-#hero .bottom {
-    margin-bottom: auto;
-    margin-top: auto;
+#page-loader{
+    display:none;
+}
+#loader-wrapper{
+    touchAction:none;
+    scroll:none;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:var(--darker-gray);
 }
 
-#hero .bottom h2 + .button {
-    margin-right: 26px;
+.loader {
+  --uib-size: 47px;
+  --uib-speed: 1s;
+  --uib-color: black;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--uib-size);
+  height: calc(var(--uib-size) * 0.17);
+  padding-top: calc(var(--uib-size) * 0.34);
 }
 
-#hero .top {
-    margin-top: 75px;
+.loader .dot {
+  flex-shrink: 0;
+  width: calc(var(--uib-size) * 0.17);
+  height: calc(var(--uib-size) * 0.17);
+  border-radius: 50%;
+  background-color: var(--dark-gray);
+  will-change: transform;
 }
 
-#hero .top a {
-    margin-right: 10px;
+.loader .dot:nth-child(1) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.45) infinite;
 }
 
-#hero h1 {
-    line-height: .7;
+.loader .dot:nth-child(2) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.3) infinite;
 }
 
-#hero h2 {
-    margin-bottom: 37px;
-    line-height: 1;
+.loader .dot:nth-child(3) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.15) infinite;
 }
 
-#hero {
-    height: 100vh;
-    overflow: hidden;
+.loader .dot:nth-child(4) {
+  animation: jump var(--uib-speed) ease-in-out infinite;
 }
 
-.inline-block {
-    display: inline-block;
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
 }
+
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
+}
+
 
       </style>
       
