@@ -1,283 +1,322 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta content="text/html; charset=utf-8" http-equiv="content-type">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>Title</title><!--critical CSS-->
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Title</title>
+      
+      <!--critical CSS-->
+      <style type="text/css">
+      html {
+    scroll-behavior: smooth;
+    /* 10px */
+    --primary-color: #FC9B2C;
+    --secondary-color: #557A54;
+    --font-color: #ffffff;
+    --light-gray: #B9B9B9;
+    --dark-gray: #383838;
+    --darker-gray: #282828;
+    /*mobile 8.4px*/
+    font-size: 52.5%;
+}
 
-	<style type="text/css">
-	     html {
-	   scroll-behavior: smooth;
-	   /* 10px */
-	   --primary-color: #FC9B2C;
-	   --secondary-color: #557A54;
-	   --font-color: #ffffff;
-	   --light-gray: #B9B9B9;
-	   --dark-gray: #383838;
-	   --darker-gray: #282828;
-	   /*mobile 8.4px*/
-	   font-size: 52.5%;
-	   }
-	   
-	   .overflow-hidden{
-	       overflow:hidden;
-	   }
-	   body{
-	       background-color: var( --darker-gray);
-	   }
-	   #hero {
-	   height:100vh;
-	   overflow:hidden;
-	   }
-	   #hero .content {
-	       position: absolute;
-	       display: flex;
-	       flex-direction: column;
-	       justify-content: space-between;
-	       height: 100%;
-	       width: 100%;
-	       background: linear-gradient(180deg, rgba(0,0,0,0) 82%, var(--darker-gray) 91%);
-	   }
-	   
-	   #page-loader{
-	       display:none;
-	   }
-	   #loader-wrapper{
-	       touchAction:none;
-	       scroll:none;
-	       width:100%;
-	       height:100%;
-	       position:fixed;
-	       top:0px;
-	       left:0px;
-	       display:flex;
-	       justify-content:center;
-	       align-items:center;
-	       background-color:var(--darker-gray);
-	   }
-	   
-	   .loader {
-	     --uib-size: 47px;
-	     --uib-speed: 1s;
-	     --uib-color: black;
-	   
-	     display: flex;
-	     flex-flow: row nowrap;
-	     align-items: center;
-	     justify-content: space-between;
-	     width: var(--uib-size);
-	     height: calc(var(--uib-size) * 0.17);
-	     padding-top: calc(var(--uib-size) * 0.34);
-	   }
-	   
-	   .loader .dot {
-	     flex-shrink: 0;
-	     width: calc(var(--uib-size) * 0.17);
-	     height: calc(var(--uib-size) * 0.17);
-	     border-radius: 50%;
-	     background-color: var(--dark-gray);
-	     will-change: transform;
-	   }
-	   
-	   .loader .dot:nth-child(1) {
-	     animation: jump var(--uib-speed) ease-in-out
-	       calc(var(--uib-speed) * -0.45) infinite;
-	   }
-	   
-	   .loader .dot:nth-child(2) {
-	     animation: jump var(--uib-speed) ease-in-out
-	       calc(var(--uib-speed) * -0.3) infinite;
-	   }
-	   
-	   .loader .dot:nth-child(3) {
-	     animation: jump var(--uib-speed) ease-in-out
-	       calc(var(--uib-speed) * -0.15) infinite;
-	   }
-	   
-	   .loader .dot:nth-child(4) {
-	     animation: jump var(--uib-speed) ease-in-out infinite;
-	   }
-	   
-	   @keyframes jump {
-	     0%,
-	     100% {
-	       transform: translateY(0px);
-	     }
-	   
-	     50% {
-	       transform: translateY(-200%);
-	     }
-	   }
-	   
-	   
-	   @keyframes jump {
-	     0%,
-	     100% {
-	       transform: translateY(0px);
-	     }
-	   
-	     50% {
-	       transform: translateY(-200%);
-	     }
-	   }
+.overflow-hidden{
+    overflow:hidden;
+}
+body{
+    background-color: var( --darker-gray);
+}
+#hero {
+height:100vh;
+overflow:hidden;
+}
+#hero .content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 82%, var(--darker-gray) 91%);
+}
+
+#page-loader{
+    display:none;
+}
+#loader-wrapper{
+    touchAction:none;
+    scroll:none;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:var(--darker-gray);
+}
+
+.loader {
+  --uib-size: 47px;
+  --uib-speed: 1s;
+  --uib-color: black;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--uib-size);
+  height: calc(var(--uib-size) * 0.17);
+  padding-top: calc(var(--uib-size) * 0.34);
+}
+
+.loader .dot {
+  flex-shrink: 0;
+  width: calc(var(--uib-size) * 0.17);
+  height: calc(var(--uib-size) * 0.17);
+  border-radius: 50%;
+  background-color: var(--dark-gray);
+  will-change: transform;
+}
+
+.loader .dot:nth-child(1) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.45) infinite;
+}
+
+.loader .dot:nth-child(2) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.3) infinite;
+}
+
+.loader .dot:nth-child(3) {
+  animation: jump var(--uib-speed) ease-in-out
+    calc(var(--uib-speed) * -0.15) infinite;
+}
+
+.loader .dot:nth-child(4) {
+  animation: jump var(--uib-speed) ease-in-out infinite;
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
+}
 
 
-	</style><!--non critical css-->
-	<link href="style.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"><noscript>
-	<link href="style.css" rel="stylesheet"></noscript><!--fonts-->
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link href="https://fonts.gstatic.com" rel="preconnect">
-	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"><noscript>
-	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-</head>
-<body class="bg-darker text-white overflow-hidden">
-	<div id="page-wrapper">
-		<div id="hero">
-			<div class="content">
-				<header class="top container">
-					<nav class="h5">
-						<a class="link" href="#projects">Projects</a> <a class="link" href="#about">About</a>
-					</nav>
-				</header>
-				<div class="bottom container">
-					<h1 class="h1">Michael <span class="inline-block"><span class="motif">G</span>ombos</span></h1>
-					<h2 class="text-light h3">Your Freindly Neighborhood Web Designer</h2><a class="button hvr-grow" href="https://github.com/MichaelGombos">Github</a> <a class="button hvr-grow bg-secondary" href="./assets/documents/GombosResume.pdf">Resume</a>
-				</div>
-			</div><!--canvas is generated here-->
-		</div>
-		<div class="container">
-			<div id="projects">
-				<h2 class="text-primary h2"><span class="motif">P</span>rojects</h2>
-				<div class="project">
-					<h3 class="h4 bold">Carrot.com Css Tab Extender</h3>
-					<p>While working at SEO for real estate investors, I spent a lot of my time inside of the carrot editor tweaking and designing web pages. The carrot.com design tab offers a CSS editor much like WordPress, but I found the default size to be too small</p><img class="preview" src="./assets/images/carrot-project.webp">
-					<nav>
-						<a class="button bg-secondary" href="https://chrome.google.com/webstore/detail/carrot-css-tab-extender/lgkdfebkigaodhjhbceehdilafpdallo?hl=en">Web Store</a> <a class="button" href="https://github.com/MichaelGombos/Carrot-CSS-Tab-Extender">Github</a>
-					</nav>
-					<div class="tech"><img src="./assets/icons/icon_css.svg"> <img src="./assets/icons/icon_html.svg"> <img src="./assets/icons/icon_js.svg"></div>
-				</div>
-				<div class="project">
-					<h3 class="h4 bold">Sorting Algorithm Visualizer</h3>
-					<p>This is a react application build to provide a visual for how data is moved inside of arrays that are ran throught common sorting algorithms.</p><img class="preview" src="./assets/images/sorter-project.webp">
-					<nav>
-						<a class="button bg-secondary" href="https://sparkling-tiramisu-b58a5d.netlify.app/">View Live</a> <a class="button" href="https://github.com/MichaelGombos/sorting-algorithm-visualizer">Github</a>
-					</nav>
-					<div class="tech"><img src="./assets/icons/icon_react.svg"> <img src="./assets/icons/icon_css.svg"> <img src="./assets/icons/icon_html.svg"> <img src="./assets/icons/icon_js.svg"></div>
-				</div>
-				<div class="project">
-					<h3 class="h4 bold">KbKaty.com</h3>
-					<p>KbKaty is a Texas contracting company that opened in 2018. I created their first website working closely with the owner to decide on a design<br>
-					<br>
-					This was one of my first real projects and taught me a lot about extracting content from clients.</p><img class="preview" src="./assets/images/kbkaty-project.webp">
-					<nav>
-						<a class="button bg-secondary" href="https://www.kbkaty.com/">View Live</a>
-					</nav>
-					<div class="tech"><img src="./assets/icons/icon_css.svg"> <img src="./assets/icons/icon_html.svg"> <img src="./assets/icons/icon_js.svg"> <img src="./assets/icons/icon_bruhstrap.svg"></div>
-				</div>
-			</div>
-			<div id="about">
-				<h2 class="h2 text-primary"><span class="motif">A</span>bout</h2>
-				<div class="column row-desktop">
-					<div class="column">
-						<h3>My name is michael...</h3><a class="button bg-secondary">...but you can call me anytime</a>
-						<p>I'm a part time student at Houston community college, with plans to continue my education at The University of Houston upon graduation.</p><br>
-						<p>I like to spend my free time practicing the ukulele, repairing military grade jet turbines, and lying about my hobbies.</p>
-					</div>
-					<div class="column"><img src="./assets/images/michael.webp"></div>
-				</div>
-			</div>
-		</div>
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="column">
-						<a class="link" href="#hero">Back To Top</a> <a class="link" href="./assets/documents/GombosResume.pdf">Resume</a> <a class="link" href="#projects">Projects</a> <a class="link" href="#about">About</a>
-						<p class="bold">Info:</p><a class="link" href="mailto:gombos2002@gmail.com">gombos2002@gmail.com</a> <a class="link" href="tel:3453378946">346 337 8946</a>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</div>
-	<div id="loader-wrapper">
-		<div class="loader">
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-		</div>
-	</div>
-	<script src="magic.js">
-	</script> <!--hero section threejs-->
-	 
-	<script id="vertexshader" type="x-shader/x-vertex">
-	     attribute float scale;
-	     
-	     void main() {
-	     
-	       vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-	     
-	       gl_PointSize = scale * ( 300.0 / - mvPosition.z );
-	     
-	       gl_Position = projectionMatrix * mvPosition;
-	     
-	     }
-	     
-	</script> 
-	<script id="fragmentshader" type="x-shader/x-fragment">
-	     uniform vec3 color;
-	     
-	     void main() {
-	     
-	       if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
-	     
-	       gl_FragColor = vec4( color, 1.0 );
-	     
-	     }
-	     
-	</script> <!--fades out loader after page load-->
-	 
-	<script>
-	  function fadeOutEffect() {
-	   var fadeTarget = document.getElementById("loader-wrapper");
-	   var pageContent = document.getElementById("page-wrapper");
-	   var pageBody = document.getElementsByTagName("body")[0];
-	   var fadeEffect = setInterval(function () {
-	      if (!fadeTarget.style.opacity) {
-	           fadeTarget.style.opacity = 1;
-	      }
-	      if (fadeTarget.style.opacity > 0) {
-	           fadeTarget.style.opacity -= 0.1;
-	      } else {
-	           clearInterval(fadeEffect);
-	      }
-	   }, 50);
-	   pageContent.style.display="block";
-	   console.log(pageBody)
-	   pageBody.classList.remove("overflow-hidden");
-	   fadeTarget.remove();
-	  }
-	  
-	  window.addEventListener("load", function(){
-	     console.log("triggered?")
-	   fadeOutEffect()
-	   
-	  });
-	  console.log("assigned")
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
 
-	</script> <!-- Import maps polyfill -->
-	 <!-- Remove this when import maps will be widely supported -->
-	 
-	<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js">
-	</script> 
-	<script type="importmap">
-	     {
-	       "imports": {
-	           "three": "../build/three.module.js"
-	       }
-	     }
-	</script> <!--you can find the original here threejs.org/examples/?q=wave#webgl_points_waves-->
-	 
-	<script src="hero-background.js" type="module">
-	</script>
-</body>
+  50% {
+    transform: translateY(-200%);
+  }
+}
+
+
+      </style>
+      
+      <!--non critical css-->
+      <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="style.css"></noscript>
+      
+      <!--fonts-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@300;400;500;600;700&display=swap"></noscript>
+      
+   </head>
+   <body class="bg-darker text-white overflow-hidden">
+      <div id="page-wrapper">
+      <div id="hero">
+         <div class="content">
+            <header class="top container">
+               <nav class="h5">
+                  <a class="link" href="#projects">Projects</a>
+                  <a class="link" href="#about">About</a>
+               </nav>
+            </header>
+            <div class="bottom container">
+               <h1 class="h1">Michael <span class="inline-block"><span class="motif">G</span>ombos</span></h1>
+               <h2 class="text-light h3 ">Your Freindly Neighborhood Web Designer</h2>
+               <a href="https://github.com/MichaelGombos" class="button hvr-grow">Github</a>
+               <a href="./assets/documents/GombosResume.pdf" class="button hvr-grow bg-secondary">Resume</a>
+            </div>
+         </div>
+         <!--canvas is generated here-->
+      </div>
+      <div class="container">
+         <div id="projects">
+            <h2 class="text-primary h2"><span class="motif">P</span>rojects</h2>
+            <div class="project">
+               <h3 class="h4 bold">Carrot.com Css Tab Extender</h3>
+               <p>While working at SEO for real estate investors, I spent a lot of my time inside of the carrot editor tweaking and designing web pages. The carrot.com design tab offers a CSS editor much like WordPress, but I found the default size to be too small </p>
+               <img class="preview" src="./assets/images/carrot-project.webp">
+               <nav>
+                  <a href="https://chrome.google.com/webstore/detail/carrot-css-tab-extender/lgkdfebkigaodhjhbceehdilafpdallo?hl=en"class="button bg-secondary">Web Store</a>
+                  <a href="https://github.com/MichaelGombos/Carrot-CSS-Tab-Extender" class="button">Github</a>
+               </nav>
+               <div class="tech">
+                  <img src="./assets/icons/icon_css.svg">
+                  <img src="./assets/icons/icon_html.svg">
+                  <img src="./assets/icons/icon_js.svg">
+               </div>
+            </div>
+            <div class="project">
+               <h3 class="h4 bold">Sorting Algorithm Visualizer</h3>
+               <p>This is a react application build to provide a visual for how data is moved inside of arrays that are ran throught common sorting algorithms.  </p>
+               <img class="preview" src="./assets/images/sorter-project.webp">
+               <nav>
+                  <a href="https://sparkling-tiramisu-b58a5d.netlify.app/" class="button bg-secondary">View Live</a>
+                  <a href="https://github.com/MichaelGombos/sorting-algorithm-visualizer" class="button">Github</a>
+               </nav>
+               <div class="tech">
+                  <img src="./assets/icons/icon_react.svg">
+                  <img src="./assets/icons/icon_css.svg">
+                  <img src="./assets/icons/icon_html.svg">
+                  <img src="./assets/icons/icon_js.svg">
+               </div>
+            </div>
+            <div class="project">
+               <h3 class="h4 bold">KbKaty.com</h3>
+               <p>KbKaty is a Texas contracting company that opened in 2018. I created their first website working closely with the owner to decide on a design
+
+<br/><br/>
+This was one of my first real projects and taught me a lot about extracting content from clients.</p>
+               <img class="preview" src="./assets/images/kbkaty-project.webp">
+               <nav>
+                  <a href="https://www.kbkaty.com/" class="button bg-secondary">View Live</a>
+               </nav>
+               <div class="tech">
+                  <img src="./assets/icons/icon_css.svg">
+                  <img src="./assets/icons/icon_html.svg">
+                  <img src="./assets/icons/icon_js.svg">
+                  <img src="./assets/icons/icon_bruhstrap.svg">
+               </div>
+            </div>
+         </div>
+         <div id="about">
+            <h2 class="h2 text-primary"><span class="motif">A</span>bout</h2>
+            <div class="column row-desktop">
+               <div class="column">
+                  <h3>My name is michael...</h3>
+                  <a class="button bg-secondary">...but you can call me anytime</a>
+                  <p>I'm a part time student at Houston community college, with plans to continue my education at The University of Houston upon graduation.</p>
+                  <br/>
+                  <p>I like to spend my free time practicing the ukulele, repairing military grade jet turbines, and lying about my hobbies.</p>
+               </div>
+               <div class="column">
+                  <img src="./assets/images/michael.webp">
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer>
+         <div class="container">
+            <div class="row">
+               <div class="column">
+                  <a class="link" href="#hero">Back To Top</a>
+                  <a class="link" href="./assets/documents/GombosResume.pdf">Resume</a>
+                  <a class="link" href="#projects">Projects</a>
+                  <a class="link" href="#about">About</a>
+                  
+                  <p class="bold">Info:</p>
+                  <a class="link" href="mailto:gombos2002@gmail.com">gombos2002@gmail.com</a>
+                  <a class="link" href="tel:3453378946">346 337 8946</a>
+               </div>
+            </div>
+         </div>
+      </footer>
+      </div>
+
+      <div scroll="no" id="loader-wrapper">
+         <div class="loader">
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+         </div>
+      </div>
+   </body>
+   <script src="magic.js"></script>
+   <!--hero section threejs-->
+   <script type="x-shader/x-vertex" id="vertexshader">
+      attribute float scale;
+      
+      void main() {
+      
+      	vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+      
+      	gl_PointSize = scale * ( 300.0 / - mvPosition.z );
+      
+      	gl_Position = projectionMatrix * mvPosition;
+      
+      }
+      
+   </script>
+   <script type="x-shader/x-fragment" id="fragmentshader">
+      uniform vec3 color;
+      
+      void main() {
+      
+      	if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
+      
+      	gl_FragColor = vec4( color, 1.0 );
+      
+      }
+      
+   </script>
+   <!--fades out loader after page load-->
+   <script>
+   function fadeOutEffect() {
+    var fadeTarget = document.getElementById("loader-wrapper");
+    var pageContent = document.getElementById("page-wrapper");
+    var pageBody = document.getElementsByTagName("body")[0];
+    var fadeEffect = setInterval(function () {
+       if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+       }
+       if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+       } else {
+            clearInterval(fadeEffect);
+       }
+    }, 50);
+    pageContent.style.display="block";
+    console.log(pageBody)
+    pageBody.classList.remove("overflow-hidden");
+    fadeTarget.remove();
+   }
+   
+   window.addEventListener("load", function(){
+      console.log("triggered?")
+    fadeOutEffect()
+    
+   });
+   console.log("assigned")
+
+</script>
+   <!-- Import maps polyfill -->
+   <!-- Remove this when import maps will be widely supported -->
+   <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+   <script type="importmap">
+      {
+      	"imports": {
+      		"three": "../build/three.module.js"
+      	}
+      }
+   </script>
+   <!--you can find the original here threejs.org/examples/?q=wave#webgl_points_waves-->
+   <script type="module" src="hero-background.js"></script>
 </html>
