@@ -218,6 +218,10 @@ overflow:hidden;
     display:flex;
     flex-direction:column;
 }
+.column img{
+    width:auto;
+    height:auto;
+}
 
 @media screen and (min-width: 754px) {
     .row-desktop{
@@ -256,6 +260,7 @@ footer{
 
 .project .preview{
     width:100%;
+    height:auto;
 }
 @media screen and (min-width: 754px) {
     .project .preview{
