@@ -22,6 +22,12 @@ body {
     font-size: 2.1rem;
     font-family: 'Montserrat', sans-serif;
 }
+
+header nav{
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+}
 .overflow-hidden{
     overflow:hidden;
 }
@@ -101,16 +107,7 @@ h1 .motif:after {
     display: inline-block;
     transform: scale(0.443);
 }
-@media only screen and (min-width : 628px){
-    h1 .motif:after{
-        content: url(./assets/icons/icon_hero_motif.svg);
-        position: absolute;
-        right: -15px;
-        bottom: 57px;
-        display: inline-block;
-        transform: scale(.573);
-    }
-}
+
 
 h2 .motif{
     position:relative;
@@ -198,14 +195,16 @@ h2 .motif{
     background: linear-gradient(180deg, rgba(0,0,0,0) 82%, var(--darker-gray) 91%);
 }
 #hero .bottom{
+    text-align: center;
     margin-bottom: auto;
     margin-top: auto;
 }
 #hero .bottom h2 + .button{
     margin-right:26px;
 }
-#hero .top{
-    margin-top:75px;
+
+#hero .top nav{
+    gap:5px;
 }
 #hero .top a{
     margin-right: 10px;
@@ -435,4 +434,30 @@ footer .column > *{
   50% {
     transform: translateY(-200%);
   }
+}
+
+@media only screen and (min-width : 628px){
+    header nav{
+        display:flex;
+        flex-direction: row;
+        
+    }
+    #hero .top{
+        margin-top:75px;
+    }
+    #hero .top nav{
+        gap:55px;
+    }
+    #hero .bottom{
+        text-align: start;
+    }
+
+    h1 .motif:after{
+        content: url(./assets/icons/icon_hero_motif.svg);
+        position: absolute;
+        right: -15px;
+        bottom: 57px;
+        display: inline-block;
+        transform: scale(.573);
+    }
 }
