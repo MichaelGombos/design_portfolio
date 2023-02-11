@@ -3,6 +3,7 @@ html {
     /* 10px */
     --primary-color: #FC9B2C;
     --secondary-color: #557A54;
+    --youtube-color: #D03939;
     --font-color: #ffffff;
     --light-gray: #B9B9B9;
     --dark-gray: #383838;
@@ -31,11 +32,17 @@ header nav{
 .overflow-hidden{
     overflow:hidden;
 }
+.button.bg-primary,
 .bg-primary{
     background-color:var(--primary-color);
 }
+.button.bg-secondary,
 .bg-secondary{
     background-color:var(--secondary-color);
+}
+.button.bg-youtube,
+.bg-youtube{
+    background-color:var(--youtube-color);
 }
 .bg-light{
     background-color:var(--light-gray);
@@ -79,12 +86,7 @@ header nav{
     width:fit-content;
 }
 
-.button.bg-primary{
-    background-color:var(--primary-color);
-}
-.button.bg-secondary{
-    background-color:var(--secondary-color);
-}
+
 a{
     text-decoration: none;
     color:white;
