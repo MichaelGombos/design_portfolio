@@ -283,6 +283,10 @@ nav .button {
   .row-desktop {
     flex-direction: row;
   }
+  .col-3-desktop {
+    flex-direction: column;
+    width: 50%;
+  }
   #portrait-splash {
     display: block;
     position: absolute;
