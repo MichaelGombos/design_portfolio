@@ -1,163 +1,155 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.117.1/build/three.module.js';
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.117.1/build/three.module.js";
 
+const SEPARATION = 100,
+  AMOUNTX = 200,
+  AMOUNTY = 200;
 
+let container;
+let camera, scene, renderer;
 
-			const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
+let particles,
+  count = 0;
 
-			let container;
-			let camera, scene, renderer;
+let mouseX = 0,
+  mouseY = 0;
 
-			let particles, count = 0;
+let windowHalfX = window.innerWidth / 2;
+let windowHalfY = window.innerHeight / 2;
 
-			let mouseX = 0, mouseY = 0;
+init();
+animate();
 
-			let windowHalfX = window.innerWidth / 2;
-			let windowHalfY = window.innerHeight / 2;
+function init() {
+  container = document.getElementById("hero");
 
-			init();
-			animate();
+  camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    1,
+    10000
+  );
+  camera.position.z = 1000;
 
-			function init() {
+  scene = new THREE.Scene();
 
-				container = document.getElementById( 'hero' );
+  //
 
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.z = 1000;
+  const numParticles = AMOUNTX * AMOUNTY;
 
-				scene = new THREE.Scene();
+  const positions = new Float32Array(numParticles * 3);
+  const scales = new Float32Array(numParticles);
 
-				//
+  let i = 0,
+    j = 0;
 
-				const numParticles = AMOUNTX * AMOUNTY;
+  for (let ix = 0; ix < AMOUNTX; ix++) {
+    for (let iy = 0; iy < AMOUNTY; iy++) {
+      positions[i] = ix * SEPARATION - (AMOUNTX * SEPARATION) / 2; // x
+      positions[i + 1] = 0; // y
+      positions[i + 2] = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2; // z
 
-				const positions = new Float32Array( numParticles * 3 );
-				const scales = new Float32Array( numParticles );
+      scales[j] = 1;
 
-				let i = 0, j = 0;
+      i += 3;
+      j++;
+    }
+  }
 
-				for ( let ix = 0; ix < AMOUNTX; ix ++ ) {
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute("scale", new THREE.BufferAttribute(scales, 1));
 
-					for ( let iy = 0; iy < AMOUNTY; iy ++ ) {
+  const material = new THREE.ShaderMaterial({
+    //ball colors
+    // 2f2f2f is a nice subtle one
+    uniforms: {
+      color: { value: new THREE.Color(0x2f2f2f) },
+    },
+    vertexShader: document.getElementById("vertexshader").textContent,
+    fragmentShader: document.getElementById("fragmentshader").textContent,
+  });
 
-						positions[ i ] = ix * SEPARATION - ( ( AMOUNTX * SEPARATION ) / 2 ); // x
-						positions[ i + 1 ] = 0; // y
-						positions[ i + 2 ] = iy * SEPARATION - ( ( AMOUNTY * SEPARATION ) / 2 ); // z
+  //
 
-						scales[ j ] = 1;
+  particles = new THREE.Points(geometry, material);
+  scene.add(particles);
 
-						i += 3;
-						j ++;
+  //
 
-					}
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
 
-				}
+  //bg color
+  renderer.setClearColor(0x282828, 1);
 
-				const geometry = new THREE.BufferGeometry();
-				geometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
-				geometry.setAttribute( 'scale', new THREE.BufferAttribute( scales, 1 ) );
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
 
-				const material = new THREE.ShaderMaterial( {
-                //ball colors
-					uniforms: {
-						color: { value: new THREE.Color( 0x383838 ) },
-					},
-					vertexShader: document.getElementById( 'vertexshader' ).textContent,
-					fragmentShader: document.getElementById( 'fragmentshader' ).textContent
+  container.style.touchAction = "pan-y";
+  container.addEventListener("pointermove", onPointerMove);
 
-				} );
+  //
 
-				//
+  window.addEventListener("resize", onWindowResize);
+}
 
-				particles = new THREE.Points( geometry, material );
-				scene.add( particles );
+function onWindowResize() {
+  windowHalfX = window.innerWidth / 2;
+  windowHalfY = window.innerHeight / 2;
 
-				//
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				
-				//bg color??
-				renderer.setClearColor( 0x282828, 1);
-				
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				container.appendChild( renderer.domElement );
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
 
+//
 
-				container.style.touchAction = 'pan-y';
-				container.addEventListener( 'pointermove', onPointerMove );
+function onPointerMove(event) {
+  if (event.isPrimary === false) return;
 
-				//
+  mouseX = event.clientX - windowHalfX;
+  mouseY = event.clientY - windowHalfY;
+}
 
-				window.addEventListener( 'resize', onWindowResize );
+//
 
-			}
+function animate() {
+  requestAnimationFrame(animate);
 
-			function onWindowResize() {
+  render();
+}
 
-				windowHalfX = window.innerWidth / 2;
-				windowHalfY = window.innerHeight / 2;
+function render() {
+  camera.position.x -= (mouseX + camera.position.x) * 0.05;
+  camera.position.y +=
+    (mouseY - camera.position.y + window.innerHeight / 1.5) * 0.05;
+  camera.lookAt(scene.position);
 
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
+  const positions = particles.geometry.attributes.position.array;
+  const scales = particles.geometry.attributes.scale.array;
 
-				renderer.setSize( window.innerWidth, window.innerHeight );
+  let i = 0,
+    j = 0;
 
-			}
+  for (let ix = 0; ix < AMOUNTX; ix++) {
+    for (let iy = 0; iy < AMOUNTY; iy++) {
+      positions[i + 1] =
+        Math.sin((ix + count) * 0.3) * 25 + Math.sin((iy + count) * 0.5) * 25;
 
-			//
+      scales[j] =
+        (Math.sin((ix + count) * 0.3) + 1) * 20 +
+        (Math.sin((iy + count) * 0.5) + 1) * 20;
 
-			function onPointerMove( event ) {
+      i += 3;
+      j++;
+    }
+  }
 
-				if ( event.isPrimary === false ) return;
+  particles.geometry.attributes.position.needsUpdate = true;
+  particles.geometry.attributes.scale.needsUpdate = true;
 
-				mouseX = event.clientX - windowHalfX;
-				mouseY = event.clientY - windowHalfY;
+  renderer.render(scene, camera);
 
-			}
-
-			//
-
-			function animate() {
-
-				requestAnimationFrame( animate );
-
-				render();
-
-			}
-
-			function render() {
-
-				camera.position.x += ( mouseX - camera.position.x ) * .05;
-				camera.position.y += ( - mouseY - camera.position.y ) * .05;
-				camera.lookAt( scene.position );
-
-				const positions = particles.geometry.attributes.position.array;
-				const scales = particles.geometry.attributes.scale.array;
-
-				let i = 0, j = 0;
-
-				for ( let ix = 0; ix < AMOUNTX; ix ++ ) {
-
-					for ( let iy = 0; iy < AMOUNTY; iy ++ ) {
-
-						positions[ i + 1 ] = ( Math.sin( ( ix + count ) * 0.3 ) * 50 ) +
-										( Math.sin( ( iy + count ) * 0.5 ) * 50 );
-
-						scales[ j ] = ( Math.sin( ( ix + count ) * 0.3 ) + 1 ) * 20 +
-										( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 20;
-
-						i += 3;
-						j ++;
-
-					}
-
-				}
-
-				particles.geometry.attributes.position.needsUpdate = true;
-				particles.geometry.attributes.scale.needsUpdate = true;
-
-				renderer.render( scene, camera );
-
-				count += 0.1;
-
-			}
+  count += 0.1;
+}
